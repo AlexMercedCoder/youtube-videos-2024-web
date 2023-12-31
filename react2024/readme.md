@@ -1,5 +1,7 @@
 # Getting Started with React
 
+- [devNursery React Docs](https://docs.devnursery.com/reference/13-00-react/)
+
 ## Phase 1 - Single HTML Style
 
 We'll get started intoducint the basic concepts in single HTML files. To add react to a basic html file:
