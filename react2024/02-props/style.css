@@ -4,19 +4,3 @@
     border: 0;
     box-sizing: border-box;
 }
-
-.row {
-    border: 3px solid red;
-    height: 80dvh;
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.card {
-    border: 3px solid green;
-    width: 30%;
-    height: 60%;
-}
