@@ -58,6 +58,12 @@ To spin up a new project using the Vite React template use:
 npm create vite@latest
 ```
 
+The standard created by facebook is `create-react-app`
+
+```shell
+npx create-react-app <name of project>
+```
+
 ## Phase 3 - Remix & NextJS
 
 Once you feel comfortable building apps with the Vite template, you can extend React to the backend with Remix & NextJS.
