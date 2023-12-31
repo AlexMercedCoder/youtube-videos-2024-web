@@ -1,12 +1,11 @@
-i
-import ArrayLesson from './components/arrays/ArrayLesson'
+import TodoList from "./components/todolist/TodoList"
 
 function App() {
 
 
   return (
     <>
-    <ArrayLesson/>
+    <TodoList/>
     </>
   )
 }
