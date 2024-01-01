@@ -1,12 +1,9 @@
-import TodoList from "./components/todolist/TodoList"
-
+import MultipPage from "./components/multipage/MultiPage"
 function App() {
 
 
   return (
-    <>
-    <TodoList/>
-    </>
+   <MultipPage/>
   )
 }
 
