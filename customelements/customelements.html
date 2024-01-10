@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <flex-box >
+        <flex-item data-color="green">1</flex-item>
+        <flex-item>2</flex-item>
+        <flex-item>3</flex-item>
+        <flex-item>4</flex-item>
+        <flex-item>5</flex-item>
+    </flex-box>
+
+    <style>
+        flex-box{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        flex-item {
+            display: block;
+            background-color: attr(data-color);
+        }
+
+        flex-item::before {
+            content: attr(data-color);
+        }
+    </style>
+</body>
+</html>

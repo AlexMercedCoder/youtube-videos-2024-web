@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <my-counter data-counter="0">
+<marquee>Hello</marquee>
+<marquee slot="below">Goodbye</marquee>
+    </my-counter>
+    
+</body>
+</html>
+
+<style>
+
+my-counter::part(count) {
+        color: red;
+    }
+
+
+</style>
+
+<script>
+
+    class MyCounter extends HTMLElement {
+
+        static observedAttributes = ["data-counter"];
+
+        constructor(){
+            super()
+
+            this.attachShadow({mode:"open"})
+            this._internals = this.attachInternals()
+            this.render()
+
+        }
+
+        render(){
+            const count = parseInt(this.getAttribute("data-counter"))
+            const self = this
+
+            if (count % 2 === 0){
+                this._internals.states.add("--even")
+            } else {
+                this._internals.states.delete("--even")
+            }
+
+            this.shadowRoot.innerHTML = `
+            <h1>counter</h1>
+            <slot></slot>
+            <h3 part="count">${count}</h3>
+            <slot name="below"></slot>
+            
+
+            <style>
+                :host(:--even) h3 {
+                    border: 3px solid green;
+                }
+
+                ::slotted(marquee){
+                    color: blue
+                }
+            </style>
+
+
+
+            `
+
+            this.shadowRoot.querySelector("h3").addEventListener("click", (event) => {
+                self.setAttribute("data-counter", count + 1)
+                self.render()
+            })
+        }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+            console.log(`Attribute ${name} has changed.`);
+          }
+
+
+    }
+
+    customElements.define("my-counter", MyCounter)
+
+</script>
